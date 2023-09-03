@@ -1,0 +1,41 @@
+name: release
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pages: write
+      pull-requests: write
+      deployments: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Lint code
+        run: yarn lint
+      - name: Test code with coverage
+        run: yarn test:coverage
+      - name: Build
+        run: yarn build
+      - name: Release application
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release
