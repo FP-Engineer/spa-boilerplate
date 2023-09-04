@@ -1,3 +1,5 @@
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -14,6 +16,8 @@ if (import.meta.env.MODE === 'dev') {
 
 root.render(
 	<React.StrictMode>
-		<App />
+		<Theme>
+			<App />
+		</Theme>
 	</React.StrictMode>,
 );
