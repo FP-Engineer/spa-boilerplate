@@ -8020,6 +8020,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "clsx@npm:2.0.0"
+  checksum: a2cfb2351b254611acf92faa0daf15220f4cd648bdf96ce369d729813b85336993871a4bf6978ddea2b81b5a130478339c20d9d0b5c6fc287e5147f0c059276e
+  languageName: node
+  linkType: hard
+
 "cmd-shim@npm:^6.0.0":
   version: 6.0.1
   resolution: "cmd-shim@npm:6.0.1"
@@ -14854,6 +14861,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"open-props@npm:^1.5.15":
+  version: 1.5.15
+  resolution: "open-props@npm:1.5.15"
+  checksum: 0055c19342f9671977f7b96253d35bc94e3a23d6ec065cbe78f27220bbea87252b6be6e4bb382e06ae97c6f2913bae9e4524ea94d6c562a33efa6613f5500521
+  languageName: node
+  linkType: hard
+
 "open@npm:^8.0.4, open@npm:^8.4.0":
   version: 8.4.2
   resolution: "open@npm:8.4.2"
@@ -17280,6 +17294,7 @@ __metadata:
     "@vitejs/plugin-react-swc": ^3.3.2
     "@vitest/ui": ^0.34.3
     axios: ^1.5.0
+    clsx: ^2.0.0
     cross-env: ^7.0.3
     eslint: ^8.45.0
     eslint-config-airbnb: ^19.0.4
@@ -17295,6 +17310,7 @@ __metadata:
     husky: ^8.0.3
     jsdom: ^22.1.0
     msw: ^1.3.0
+    open-props: ^1.5.15
     react: ^18.2.0
     react-dom: ^18.2.0
     react-query: ^3.39.3

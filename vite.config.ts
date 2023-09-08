@@ -1,9 +1,10 @@
-/// <reference types="vitest" />
-/// <reference types="vite/client" />
+/// <reference types='vitest' />
+/// <reference types='vite/client' />
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import path from 'path';
 
 export default async ({ mode }) => {
 
@@ -49,7 +50,12 @@ export default async ({ mode }) => {
 			globals: true,
 			environment: 'jsdom',
 			setupFiles: ['vitest.setup.ts'],
-		  },
+		},
+		resolve: {
+			alias: {
+				'@': path.resolve(__dirname, './src'),
+			}
+		},
 		...options,
 	});
 }
