@@ -45,6 +45,7 @@ module.exports = {
 				'react/prop-types': 'off',
 				'react/react-in-jsx-scope': 'off',
 				'react/jsx-indent': ['error', 'tab'],
+				'react/jsx-indent-props': [1, 'tab'],
 				'react/jsx-curly-spacing': ['error', 'always'],
 				'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 				'import/default': 'off',
