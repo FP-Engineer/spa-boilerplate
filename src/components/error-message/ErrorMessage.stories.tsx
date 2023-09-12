@@ -7,9 +7,9 @@ const meta = {
 	component: ErrorMessage,
 	argTypes: {
 		children: {
-			type: {name: 'string', required: true},
+			type: { name: 'string', required: true },
 			table: {
-				type: {summary: 'string'},
+				type: { summary: 'string' },
 			},
 		},
 	},
