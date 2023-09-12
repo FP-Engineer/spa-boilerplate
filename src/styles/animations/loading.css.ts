@@ -1,7 +1,7 @@
 import { style, keyframes } from '@vanilla-extract/css';
 
 const bzzzt = keyframes({
-	to: { backgroundPosition: '-100% 0' }
+	to: { backgroundPosition: '-100% 0' },
 });
 
 export const loading = style({
@@ -11,8 +11,8 @@ export const loading = style({
 		rgb(229 229 229 / 90%) 40px,
 		var(--gray-2) 80px
 	)`,
-  backgroundSize: '300%',
-  backgroundPosition: '100% 0',
-  borderRadius: 'inherit',
-  animation: `${ bzzzt } 1.5s infinite`,
+	backgroundSize: '300%',
+	backgroundPosition: '100% 0',
+	borderRadius: 'inherit',
+	animation: `${bzzzt} 1.5s infinite`,
 });
