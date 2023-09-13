@@ -1,11 +1,19 @@
 module.exports = {
 	root: true,
 	env: { browser: true, es2020: true },
+	settings: {
+		'import/resolver': {
+			typescript: {
+				project: './tsconfig.json'
+			}
+		},
+	},
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 		project: './tsconfig.json',
+		tsconfigRootDir: './',
 	},
 	ignorePatterns: [
 		'dist',
@@ -33,15 +41,12 @@ module.exports = {
 			rules: {
 				'no-tabs': 'off',
 				'indent': 'off',
+				'arrow-body-style': 'off',
 				'object-curly-spacing': ['error', 'always'],
 				'array-bracket-spacing': ['error', 'always'],
 				'jsx-quotes': ['error', 'prefer-single'],
 				'linebreak-style': ['error', 'unix'],
 				'padded-blocks': ['error', { 'blocks': 'always' }],
-				'no-restricted-imports': [ 'error', {
-						patterns: ['@/features/*/*'],
-					},
-				],
 				'react/prop-types': 'off',
 				'react/react-in-jsx-scope': 'off',
 				'react/jsx-indent': ['error', 'tab'],
