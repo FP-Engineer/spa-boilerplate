@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios';
+
 import { HTTPMethod } from './constants';
 import { NetworkError } from './NetworkError';
 
@@ -24,8 +26,17 @@ describe('createAPIClient Test Suite', () => {
 		const client = createAPIClient(baseURL);
 		const path = '/server/error';
 		const method = HTTPMethod.get;
+		const expectedCause = AxiosError.from({
+			response: {
+				status: 501,
+				data: {
+					message: 'server error',
+				},
+			},
+		});
+		const expectedError = NetworkError.of(expectedCause);
 
-		await expect(client({ path, method })).rejects.toThrow(NetworkError);
+		await expect(client({ path, method })).rejects.toThrow(expectedError);
 
 	});
 

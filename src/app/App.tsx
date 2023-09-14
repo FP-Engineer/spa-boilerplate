@@ -4,8 +4,6 @@ import {
 	QueryClientProvider,
 } from 'react-query';
 
-import { Landing } from '@/features/characters/components/landing';
-
 import { ErrorFallback } from './ErrorFallback';
 
 export function App() {
@@ -22,9 +20,7 @@ export function App() {
 
 	return (
 		<ErrorBoundary FallbackComponent={ ErrorFallback }>
-			<QueryClientProvider client={ client }>
-				<Landing />
-			</QueryClientProvider>
+			<QueryClientProvider client={ client } />
 		</ErrorBoundary>
 	);
 
