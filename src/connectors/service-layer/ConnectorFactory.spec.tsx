@@ -49,9 +49,10 @@ describe('Api Client Service Layer Test Suite', () => {
 		await waitFor(() => {
 
 			expect(result.current.data).toBeDefined();
-			expect(result.current.error).toBeUndefined();
 
 		});
+
+		expect(result.current.error).toBeUndefined();
 
 	});
 
@@ -81,10 +82,11 @@ describe('Api Client Service Layer Test Suite', () => {
 
 		await waitFor(() => {
 
-			expect(result.current.data).toBeUndefined();
 			expect(result.current.error).toBeDefined();
 
 		});
+
+		expect(result.current.data).toBeUndefined();
 
 	});
 
