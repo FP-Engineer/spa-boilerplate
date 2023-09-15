@@ -1,3 +1,4 @@
+import { Theme } from '@radix-ui/themes';
 import { ErrorBoundary } from 'react-error-boundary';
 import {
 	QueryClient,
@@ -19,9 +20,11 @@ export function App() {
 	});
 
 	return (
-		<ErrorBoundary FallbackComponent={ ErrorFallback }>
-			<QueryClientProvider client={ client } />
-		</ErrorBoundary>
+		<Theme accentColor='sky'>
+			<ErrorBoundary FallbackComponent={ ErrorFallback }>
+				<QueryClientProvider client={ client } />
+			</ErrorBoundary>
+		</Theme>
 	);
 
 }
