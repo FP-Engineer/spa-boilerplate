@@ -4093,6 +4093,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@remix-run/router@npm:1.9.0"
+  checksum: 0537b0ff29879ac85077cb4c42eaca4a295b9efd71477848984c2f2dfa5741c9b83d3106a7bb72994a51a9adfeeab3b0f5a40f2dee8be3f0750feeeca2a6d513
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-inject@npm:^5.0.3":
   version: 5.0.3
   resolution: "@rollup/plugin-inject@npm:5.0.3"
@@ -16059,6 +16066,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-lazily@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "react-lazily@npm:0.9.2"
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: ee620e01dab0e77ed65ab5092d41cedbfe1c026f6eabe47838bcce8bffc788f239aa38b1d2b016bae4482c1ba1907fa73bece7077327f676d96610959438803e
+  languageName: node
+  linkType: hard
+
 "react-query@npm:^3.39.3":
   version: 3.39.3
   resolution: "react-query@npm:3.39.3"
@@ -16116,6 +16139,30 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 2c7fe9cbd766f5e54beb4bec2e2efb2de3583037b23fef8fa511ab426ed7f1ae992382db5acd8ab5bfb030a4b93a06a2ebca41377d6eeaf0e6791bb0a59616a4
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^6.16.0":
+  version: 6.16.0
+  resolution: "react-router-dom@npm:6.16.0"
+  dependencies:
+    "@remix-run/router": 1.9.0
+    react-router: 6.16.0
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 18b398924bb0f0d97cf2f71dab71d860b960a7a267b2f77388990c662bb6d8738bdc3042d92f713fd63d269ae9ad90df39c8e97661b6ba758bbb7386b9f20ae0
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.16.0":
+  version: 6.16.0
+  resolution: "react-router@npm:6.16.0"
+  dependencies:
+    "@remix-run/router": 1.9.0
+  peerDependencies:
+    react: ">=16.8"
+  checksum: b31c187e3fdcdf7294ffdad6ff834e14d012840c94d8ee8c7fbe451062a8fcb6e31e8bc7827fb1ff45445dd40fad2b8c96a7e98f0ac1c3eb1d716c257a0821c9
   languageName: node
   linkType: hard
 
@@ -17315,12 +17362,15 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-error-boundary: ^4.0.11
+    react-lazily: ^0.9.2
     react-query: ^3.39.3
+    react-router-dom: ^6.16.0
     remark-gfm: ^3.0.1
     scaffdog: ^3.0.0
     semantic-release: ^21.1.1
     storybook: ^7.4.1
     typescript: ^5.2.2
+    usehooks-ts: ^2.9.1
     vite: ^4.4.5
     vite-plugin-node-polyfills: ^0.12.0
     vitest: ^0.34.3
@@ -18783,6 +18833,16 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
+  languageName: node
+  linkType: hard
+
+"usehooks-ts@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "usehooks-ts@npm:2.9.1"
+  peerDependencies:
+    react: ^16.8.0  || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+  checksum: 36f1e4142ce23bc019b81d2e93aefd7f2c350abcf255598c21627114a69a2f2f116b35dc3a353375f09c6e4c9b704a04f104e3d10e98280545c097feca66c30a
   languageName: node
   linkType: hard
 
