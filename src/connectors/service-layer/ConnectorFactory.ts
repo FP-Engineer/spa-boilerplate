@@ -12,14 +12,14 @@ export interface RemoteData<T> {
 }
 
 export interface RemoteDataConnector {
-	<T>(path: string): RemoteData<T>;
+	<T>(path?: string): RemoteData<T>;
 }
 
 export function connectRemoteData(serviceUrl: string): RemoteDataConnector {
 
 	const request = createAPIClient(serviceUrl);
 
-	return function useRemoteData<T>(path: string) {
+	return function useRemoteData<T>(path = '') {
 
 		const key = `${serviceUrl}|${path}|${HTTPMethod.get}`;
 		const { isLoading, data, error } = useQuery<T, string>(key, () => {
