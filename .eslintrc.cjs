@@ -48,6 +48,7 @@ module.exports = {
 				'linebreak-style': ['error', 'unix'],
 				'padded-blocks': ['error', { 'blocks': 'always' }],
 				'react/prop-types': 'off',
+				'react/require-default-props': 'off',
 				'react/react-in-jsx-scope': 'off',
 				'react/jsx-indent': ['error', 'tab'],
 				'react/jsx-indent-props': [1, 'tab'],
@@ -85,8 +86,8 @@ module.exports = {
 		},
 		{
 			// or whatever matches stories specified in .storybook/main.js
-			"files": ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-			"rules": {
+			'files': ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+			'rules': {
 				'import/no-default-export': 0,
 			}
 		}

@@ -1,6 +1,3 @@
-import '@radix-ui/themes/styles.css';
-import 'open-props';
-import 'open-props/normalize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
