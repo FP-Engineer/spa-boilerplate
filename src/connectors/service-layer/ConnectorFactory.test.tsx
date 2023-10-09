@@ -13,9 +13,12 @@ describe('Api Client Service Layer Test Suite', () => {
 				{ children }
 			</QueryClientProvider>
 		);
-		const useAPI = connectRemoteData('https://api.example.com');
+		const useAPI = connectRemoteData({
+			url: 'https://api.example.com',
+			name: 'placeholder',
+		});
 		const { result } = renderHook(
-			() => useAPI('/happy/path'),
+			() => useAPI({ path: '/happy/path' }),
 			{ wrapper },
 		);
 
@@ -37,9 +40,12 @@ describe('Api Client Service Layer Test Suite', () => {
 				{ children }
 			</QueryClientProvider>
 		);
-		const useAPI = connectRemoteData('https://api.example.com');
+		const useAPI = connectRemoteData({
+			url: 'https://api.example.com',
+			name: 'placeholder',
+		});
 		const { result } = renderHook(
-			() => useAPI('/happy/path'),
+			() => useAPI({ path: '/happy/path' }),
 			{ wrapper },
 		);
 
@@ -71,9 +77,12 @@ describe('Api Client Service Layer Test Suite', () => {
 				{ children }
 			</QueryClientProvider>
 		);
-		const useAPI = connectRemoteData('https://api.example.com');
+		const useAPI = connectRemoteData({
+			url: 'https://api.example.com',
+			name: 'placeholder',
+		});
 		const { result } = renderHook(
-			() => useAPI('/server/error'),
+			() => useAPI({ path: '/server/error' }),
 			{ wrapper },
 		);
 
