@@ -11,21 +11,31 @@ export interface RemoteData<T> {
 	error?: string;
 }
 
-export interface RemoteDataConnector {
-	<T>(path?: string): RemoteData<T>;
+export interface RemoteDataQuery {
+	path: string;
+	page: number;
 }
 
-export function connectRemoteData(serviceUrl: string): RemoteDataConnector {
+export interface RemoteDataConnector {
+	<T>(options: Partial<RemoteDataQuery>): RemoteData<T>;
+}
 
-	const request = createAPIClient(serviceUrl);
+export interface RemoteDataConnectorFactoryConfig {
+	name: string;
+	url: string;
+}
 
-	return function useRemoteData<T>(path = '') {
+export function connectRemoteData({ url, name }: RemoteDataConnectorFactoryConfig): RemoteDataConnector {
 
-		const key = `${serviceUrl}|${path}|${HTTPMethod.get}`;
-		const { isLoading, data, error } = useQuery<T, string>(key, () => {
+	const request = createAPIClient(url);
 
-			return request<T>({ path, method: HTTPMethod.get });
+	return function useRemoteData<T>({ path = '', page }: Partial<RemoteDataQuery>) {
 
+		const key = `${name}|${path}|${HTTPMethod.get}`;
+		const { isLoading, data, error } = useQuery<T, string>({
+			queryKey: [ key, page ],
+			queryFn: () => request<T>({ path, method: HTTPMethod.get }),
+			keepPreviousData: Number.isNaN(page),
 		});
 
 		return {
