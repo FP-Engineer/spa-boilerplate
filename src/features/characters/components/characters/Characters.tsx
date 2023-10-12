@@ -1,5 +1,10 @@
 import clsx from 'clsx';
 
+import {
+	useEffect,
+	useRef,
+} from 'react';
+
 import { ErrorMessage } from '@/components/error-message';
 import { loading } from '@/styles/animations';
 
@@ -11,9 +16,47 @@ import {
 	character,
 } from './Characters.css';
 
+
 export function Characters() {
 
-	const { data, error, isLoading } = useCharacters();
+	const {
+		data, error, isLoading, next,
+	} = useCharacters();
+
+	const observerTarget = useRef(null);
+
+	useEffect(() => {
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+
+				if (entries[0].isIntersecting) {
+
+					next();
+
+				}
+
+			},
+			{ threshold: 1 },
+		);
+
+		if (observerTarget.current) {
+
+			observer.observe(observerTarget.current);
+
+		}
+
+		return () => {
+
+			if (observerTarget.current) {
+
+				observer.unobserve(observerTarget.current);
+
+			}
+
+		};
+
+	}, [ observerTarget, next ]);
 
 	if (error) {
 
@@ -28,6 +71,7 @@ export function Characters() {
 					<Character className={ character } model={ model } />
 				</li>
 			))}
+			<div ref={observerTarget}></div>
 		</ul>
 	);
 
