@@ -1,1 +1,1 @@
-export * from './ConnectorFactory';
+export * from './crud';
