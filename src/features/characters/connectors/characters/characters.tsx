@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useInfiniteQuery } from 'react-query';
 
 import { createCRUDClient } from '@/connectors';
 
@@ -6,7 +7,6 @@ import {
 	Character,
 	type CharacterData,
 } from '../../models';
-import { useInfiniteQuery } from 'react-query';
 
 const baseUrl = import.meta.env.VITE_RICKNMORTYAPI_URL;
 const endpoint = 'character';
@@ -30,15 +30,16 @@ export function useCharacters() {
 		queryFn: ({ pageParam = 1 }) => read<CharactersPage>({
 			path,
 			params: {
-				page: pageParam
+				page: pageParam,
 			},
 		}),
 		getNextPageParam: (lastPage, allPages) => {
-			
+
 			const hasNextPage = !!lastPage.info.next;
 			const nextPage = allPages.length + 1;
 
 			return hasNextPage ? nextPage : undefined;
+
 		},
 	});
 	const data = remoteData?.pages.flatMap((page) => page.results.map(Character.of));

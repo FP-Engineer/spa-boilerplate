@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-
 import {
 	useEffect,
 	useRef,
@@ -15,7 +14,6 @@ import {
 	container,
 	character,
 } from './Characters.css';
-
 
 export function Characters() {
 
@@ -71,7 +69,7 @@ export function Characters() {
 					<Character className={ character } model={ model } />
 				</li>
 			))}
-			<div ref={observerTarget}></div>
+			<div ref={ observerTarget } />
 		</ul>
 	);
 
