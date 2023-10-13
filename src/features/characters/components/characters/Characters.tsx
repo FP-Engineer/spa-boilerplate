@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useCallback } from 'react';
 
 import { ErrorMessage } from '@/components/error-message';
 import { useOnShowUp } from '@/hooks/on-show-up/OnShowUp';
@@ -18,7 +19,13 @@ export function Characters() {
 		data, error, isLoading, next,
 	} = useCharacters();
 
-	const { ref } = useOnShowUp(next);
+	const fetchCharacters = useCallback(() => {
+
+		requestAnimationFrame(next);
+
+	}, [ next ]);
+
+	const { ref } = useOnShowUp(fetchCharacters);
 
 	if (error) {
 
