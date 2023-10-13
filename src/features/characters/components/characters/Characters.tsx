@@ -25,10 +25,11 @@ export function Characters() {
 
 	useEffect(() => {
 
+		let observerRefValue: Element | null = null;
 		const observer = new IntersectionObserver(
-			(entries) => {
+			([ entry ]) => {
 
-				if (entries[0].isIntersecting) {
+				if (entry.isIntersecting) {
 
 					next();
 
@@ -40,15 +41,16 @@ export function Characters() {
 
 		if (observerTarget.current) {
 
-			observer.observe(observerTarget.current);
+			observerRefValue = observerTarget.current;
+			observer.observe(observerRefValue);
 
 		}
 
 		return () => {
 
-			if (observerTarget.current) {
+			if (observerRefValue) {
 
-				observer.unobserve(observerTarget.current);
+				observer.unobserve(observerRefValue);
 
 			}
 
