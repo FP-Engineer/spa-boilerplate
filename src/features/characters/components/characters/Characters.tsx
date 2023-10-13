@@ -1,10 +1,7 @@
 import clsx from 'clsx';
-import {
-	useEffect,
-	useRef,
-} from 'react';
 
 import { ErrorMessage } from '@/components/error-message';
+import { useOnShowUp } from '@/hooks/on-show-up/OnShowUp';
 import { loading } from '@/styles/animations';
 
 import { useCharacters } from '../../connectors/characters/characters';
@@ -21,42 +18,7 @@ export function Characters() {
 		data, error, isLoading, next,
 	} = useCharacters();
 
-	const observerTarget = useRef(null);
-
-	useEffect(() => {
-
-		let observerRefValue: Element | null = null;
-		const observer = new IntersectionObserver(
-			([ entry ]) => {
-
-				if (entry.isIntersecting) {
-
-					next();
-
-				}
-
-			},
-			{ threshold: 1 },
-		);
-
-		if (observerTarget.current) {
-
-			observerRefValue = observerTarget.current;
-			observer.observe(observerRefValue);
-
-		}
-
-		return () => {
-
-			if (observerRefValue) {
-
-				observer.unobserve(observerRefValue);
-
-			}
-
-		};
-
-	}, [ observerTarget, next ]);
+	const { ref } = useOnShowUp(next);
 
 	if (error) {
 
@@ -71,7 +33,7 @@ export function Characters() {
 					<Character className={ character } model={ model } />
 				</li>
 			))}
-			<div ref={ observerTarget } />
+			<div ref={ ref } />
 		</ul>
 	);
 
