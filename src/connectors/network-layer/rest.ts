@@ -28,8 +28,10 @@ export function createRestClient(baseURL: string): RestClient {
 	);
 
 	const request = <T>(req: RestRequest): Promise<T> => {
-		
-		const { path, method, payload, headers, params } = req;
+
+		const {
+			path, method, payload, headers, params,
+		} = req;
 
 		return client.request({
 			headers,
@@ -40,10 +42,10 @@ export function createRestClient(baseURL: string): RestClient {
 		});
 
 	};
-	const get = <T>(req: GetRequest) => { 
-		
+	const get = <T>(req: GetRequest) => {
+
 		return request<T>({ ...req, method: HTTPMethod.get });
-	
+
 	};
 
 	return { request, get };
