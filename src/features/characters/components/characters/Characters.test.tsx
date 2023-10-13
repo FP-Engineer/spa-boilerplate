@@ -8,7 +8,7 @@ describe('Characters Test Suite', () => {
 	it.skip('renders without crashing.', () => {
 
 		render(
-			<Characters />
+			<Characters />,
 		);
 
 	});
