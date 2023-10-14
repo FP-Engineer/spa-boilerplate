@@ -1,29 +1,22 @@
 export enum Status {
-
 	alive = 'Alive',
 	dead = 'Dead',
 	unknown = 'unknown',
-
 }
 
 export enum Gender {
-
 	female = 'Female',
 	male = 'Male',
 	genderless = 'Genderless',
 	unknown = 'unknown',
-
 }
 
 export interface Location {
-
 	name: string;
 	url: string;
-
 }
 
 export interface CharacterData {
-
 	id: number;
 	name: string;
 	status: string;
@@ -36,11 +29,9 @@ export interface CharacterData {
 	episode: Array<string>;
 	url: string;
 	created: string;
-
 }
 
 export interface CharacterModel {
-
 	id: number;
 	name: string;
 	avatarUrl: string;
@@ -48,7 +39,6 @@ export interface CharacterModel {
 	species: string;
 	gender: Gender;
 	episodeCount: number;
-
 }
 
 export class Character implements CharacterModel {
