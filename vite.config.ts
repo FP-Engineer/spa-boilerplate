@@ -52,7 +52,10 @@ export default async ({ mode }) => {
 			setupFiles: ['vitest.setup.ts'],
 			coverage: {
 				provider: 'v8',
-				exclude: ['src/__mocks/**'],
+				exclude: [
+					'src/__mocks/**',
+					'src/**/*.css.ts*',
+				],
 			},
 		},
 		resolve: {
