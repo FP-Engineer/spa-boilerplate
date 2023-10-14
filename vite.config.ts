@@ -40,12 +40,9 @@ export default async ({ mode }) => {
 	}
 
 	return defineConfig({
+		base: '/spa-boilerplate',
 		plugins,
 		envDir: './environments',
-		server: {
-			host: true,
-			port: 8001,
-		},
 		test: {
 			globals: true,
 			environment: 'jsdom',
