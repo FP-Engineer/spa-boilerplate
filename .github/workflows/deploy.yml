@@ -9,6 +9,7 @@ jobs:
       contents: read
       pages: write
       deployments: read
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
