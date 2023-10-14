@@ -50,6 +50,10 @@ export default async ({ mode }) => {
 			globals: true,
 			environment: 'jsdom',
 			setupFiles: ['vitest.setup.ts'],
+			coverage: {
+				provider: 'v8',
+				exclude: ['src/__mocks/**'],
+			},
 		},
 		resolve: {
 			alias: {
