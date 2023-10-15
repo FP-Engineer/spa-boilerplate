@@ -9,7 +9,7 @@ export function CharactersRoutes() {
 
 	return (
 		<Routes>
-			<Route path='/' element={ <Characters /> } />
+			<Route path='spa-boilerplate/' element={ <Characters /> } />
 		</Routes>
 	);
 
