@@ -6,9 +6,10 @@ on:
 jobs:
   deploy:
     permissions:
-      contents: read
+      contents: write
+      issues: write
       pages: write
-      deployments: read
+      deployments: write
       id-token: write
     runs-on: ubuntu-latest
     steps:
