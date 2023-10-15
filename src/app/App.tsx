@@ -44,7 +44,7 @@ export function App() {
 	document.body.classList.toggle('light', !isDarkMode);
 
 	return (
-		<Theme appearance={ appearance } accentColor='sky'>
+		<Theme appearance={ appearance } accentColor='blue'>
 			<ErrorBoundary FallbackComponent={ ErrorFallback }>
 				<QueryClientProvider client={ client }>
 					<DevTools />
