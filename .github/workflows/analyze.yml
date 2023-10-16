@@ -24,4 +24,4 @@ jobs:
       - name: Test code with coverage
         run: yarn test:coverage
       - name: Build
-        run: yarn build
+        run: yarn build:prod

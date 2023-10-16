@@ -33,7 +33,7 @@ jobs:
       - name: Test code with coverage
         run: yarn test:coverage
       - name: Build
-        run: yarn build
+        run: yarn build:prod
       - name: Release application
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
