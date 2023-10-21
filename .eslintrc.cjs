@@ -54,6 +54,7 @@ module.exports = {
 				'react/jsx-indent-props': [1, 'tab'],
 				'react/jsx-curly-spacing': ['error', 'always'],
 				'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+				'testing-library/prefer-screen-queries': 'off',
 				'import/default': 'off',
 				'import/prefer-default-export': 'off',
 				'import/no-default-export': 2,
