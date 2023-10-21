@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 
 import { ErrorMessage } from '@/components/error-message';
-import { useOnShowUp } from '@/hooks/on-show-up/OnShowUp';
+import { useIntersectionEffect } from '@/hooks/intersection-effect/IntersectionEffect';
 import { loading } from '@/styles/animations';
 
 import { useCharacters } from '../../connectors/characters/characters';
@@ -25,7 +25,7 @@ export function Characters() {
 
 	}, [ next ]);
 
-	const { ref } = useOnShowUp(fetchCharacters);
+	const { ref } = useIntersectionEffect(fetchCharacters);
 
 	if (error) {
 
