@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
 
+import { CardSkeleton } from '@/components/card-skeleton';
 import { ErrorMessage } from '@/components/error-message';
 import { useIntersectionEffect } from '@/hooks/intersection-effect/IntersectionEffect';
 import { loading } from '@/styles/animations';
@@ -16,7 +17,11 @@ import {
 export function Characters() {
 
 	const {
-		data, error, isLoading, next,
+		data,
+		error,
+		isLoading,
+		next,
+		count,
 	} = useCharacters();
 
 	const fetchCharacters = useCallback(() => {
@@ -27,6 +32,11 @@ export function Characters() {
 
 	const { ref } = useIntersectionEffect(fetchCharacters);
 
+	const range = Array.from(
+		{ length: count ?? 0 },
+		(_, idx) => idx,
+	);
+
 	if (error) {
 
 		return <ErrorMessage>{ error }</ErrorMessage>;
@@ -35,12 +45,17 @@ export function Characters() {
 
 	return (
 		<ul className={ clsx(container, { [loading]: isLoading }) }>
-			{data?.map((model) => (
-				<li key={ model.id }>
-					<Character className={ character } model={ model } />
-				</li>
-			))}
-			<div ref={ ref } />
+			{range?.map((idx) => {
+
+				const model = data?.at(idx);
+
+				return (
+					<li key={ model?.id ?? idx } ref={ data?.length === idx ? ref : null }>
+						{ model ? <Character className={ character } model={ model } /> : <CardSkeleton /> }
+					</li>
+				);
+
+			})}
 		</ul>
 	);
 

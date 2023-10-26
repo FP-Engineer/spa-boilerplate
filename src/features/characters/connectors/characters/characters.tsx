@@ -14,10 +14,19 @@ const { read } = createCRUDClient(baseUrl);
 
 export function useCharacters() {
 
-	type CharactersPage = {
-		results: Array<CharacterData>,
-		info: { next: string },
-	};
+	interface Info {
+		count: number;
+		pages: number;
+		next?: string;
+		prev?: string;
+	}
+
+	interface Page<T> {
+		info: Info;
+		results: Array<T>;
+	}
+
+	type CharactersPage = Page<CharacterData>;
 
 	const path = `/${endpoint}`;
 	const {
@@ -43,6 +52,7 @@ export function useCharacters() {
 		},
 	});
 	const data = remoteData?.pages.flatMap((page) => page.results.map(Character.of));
+	const count = remoteData?.pages.at(0)?.info.count;
 	const next = useCallback(() => fetchNextPage(), [ fetchNextPage ]);
 
 	return {
@@ -52,6 +62,7 @@ export function useCharacters() {
 		isLoading,
 		data,
 		next,
+		count,
 	};
 
 }
